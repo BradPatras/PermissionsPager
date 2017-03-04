@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         exampleTextView = (TextView) findViewById(R.id.exampleTextView);
         exampleButton = (Button) findViewById(R.id.exampleButton);
-
         exampleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,9 +37,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openPager(){
-        String[] p = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_CALENDAR};
-        String[] r = {"We need to see where u at", "We need to see wat ur up to"};
-        PermissionsPager.showPermissionsPager(p,r,this);
+        //Updated builder-style method for showing permission pager
+        PermissionsPager.buildPermissionsPager(this)
+                .with(Manifest.permission.ACCESS_FINE_LOCATION, "We need to see where u at")
+                .and(Manifest.permission.WRITE_EXTERNAL_STORAGE, "Maybe this is a file explorer app")
+                .and(Manifest.permission.READ_CALENDAR, "Or maybe this is a calendar app")
+                .show();
+
+        //Deprecated method for showing permission pager
+//        String[] p = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_CALENDAR};
+//        String[] r = {"We need to see where u at", "We need to see wat ur up to"};
+//        PermissionsPager.showPermissionsPager(p,r,this);
     }
 
     @Override

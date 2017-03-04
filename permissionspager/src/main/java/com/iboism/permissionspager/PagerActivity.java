@@ -99,18 +99,12 @@ public class PagerActivity extends AppCompatActivity implements RequestPermissio
 
         @Override
         public int getCount() {
-            return permissions.length;
+            return (permissions != null) ? permissions.length : 0;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "Page 1";
-                case 1:
-                    return "Page 2";
-            }
-            return null;
+            return "Page " + position++;
         }
     }
 

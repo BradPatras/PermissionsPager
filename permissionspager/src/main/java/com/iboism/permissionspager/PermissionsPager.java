@@ -14,6 +14,11 @@ import java.util.Map;
  */
 
 public class PermissionsPager {
+    public static final String GRANTED_ARRAY_INTENT_KEY = "kGrantedPermissionsArray";
+    public static final String DENIED_ARRAY_INTENT_KEY = "kDeniedPermissionsArray";
+    public static final String PERMISSION_ARRAY_INTENT_KEY = "kPermissionArray";
+    public static final String RATIONALE_ARRAY_INTENT_KEY = "kRationaleArray";
+
     private ArrayList<String> permissions;
     private ArrayList<String> rationales;
     private Activity resultResponder;
@@ -27,7 +32,8 @@ public class PermissionsPager {
     /**
      * First step to build and show permission pager.
      * Append with .and or .with to add permission-rationale pairs
-     * @param activity
+     * @param activity Activity used for launching the permission pager activity.
+     *                 NOTE: This activity MUST implement onActivityResult in order to receive the results of the permission requests
      * @return
      */
     public static PermissionsPager buildPermissionsPager(Activity activity){
@@ -69,8 +75,8 @@ public class PermissionsPager {
         if (permissions.size() == 0) { return; }
 
         Intent permissionIntent = new Intent(resultResponder, PagerActivity.class);
-        permissionIntent.putExtra(PagerActivity.PERMISSION_ARRAY_INTENT_KEY, permissions.toArray(new String[0]));
-        permissionIntent.putExtra(PagerActivity.RATIONALE_ARRAY_INTENT_KEY, rationales.toArray(new String[0]));
+        permissionIntent.putExtra(PERMISSION_ARRAY_INTENT_KEY, permissions.toArray(new String[0]));
+        permissionIntent.putExtra(RATIONALE_ARRAY_INTENT_KEY, rationales.toArray(new String[0]));
         resultResponder.startActivityForResult(permissionIntent,1738);
     }
 
@@ -83,8 +89,8 @@ public class PermissionsPager {
     @Deprecated
     public static void showPermissionsPager(String[] permissions, String[] rationales, Activity activity){
         Intent permissionIntent = new Intent(activity, PagerActivity.class);
-        permissionIntent.putExtra(PagerActivity.PERMISSION_ARRAY_INTENT_KEY, permissions);
-        permissionIntent.putExtra(PagerActivity.RATIONALE_ARRAY_INTENT_KEY, rationales);
+        permissionIntent.putExtra(PERMISSION_ARRAY_INTENT_KEY, permissions);
+        permissionIntent.putExtra(RATIONALE_ARRAY_INTENT_KEY, rationales);
         activity.startActivityForResult(permissionIntent,1738);
     }
 }

@@ -15,6 +15,8 @@ import com.iboism.permissionspager.PermissionsPager;
 import java.util.Arrays;
 
 import static android.R.attr.button;
+import static com.iboism.permissionspager.PermissionsPager.DENIED_ARRAY_INTENT_KEY;
+import static com.iboism.permissionspager.PermissionsPager.GRANTED_ARRAY_INTENT_KEY;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -54,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
-            String[] denied = data.getStringArrayExtra(PagerActivity.DENIED_ARRAY_INTENT_KEY);
-            String[] granted = data.getStringArrayExtra(PagerActivity.GRANTED_ARRAY_INTENT_KEY);
+            String[] denied = data.getStringArrayExtra(DENIED_ARRAY_INTENT_KEY);
+            String[] granted = data.getStringArrayExtra(GRANTED_ARRAY_INTENT_KEY);
             exampleTextView.setText("Denied Permissions: \n" + Arrays.toString(denied) + "\n" + "Granted Permissions: \n" + Arrays.toString(granted));
         }
     }

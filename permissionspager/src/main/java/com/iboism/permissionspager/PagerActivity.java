@@ -10,6 +10,11 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import java.util.ArrayList;
 
+import static com.iboism.permissionspager.PermissionsPager.DENIED_ARRAY_INTENT_KEY;
+import static com.iboism.permissionspager.PermissionsPager.GRANTED_ARRAY_INTENT_KEY;
+import static com.iboism.permissionspager.PermissionsPager.PERMISSION_ARRAY_INTENT_KEY;
+import static com.iboism.permissionspager.PermissionsPager.RATIONALE_ARRAY_INTENT_KEY;
+
 public class PagerActivity extends AppCompatActivity implements RequestPermissionFragment.OnFragmentInteractionListener {
 
     /**
@@ -23,10 +28,7 @@ public class PagerActivity extends AppCompatActivity implements RequestPermissio
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private CustomViewPager mViewPager;
 
-    public static final String GRANTED_ARRAY_INTENT_KEY = "kGrantedPermissionsArray";
-    public static final String DENIED_ARRAY_INTENT_KEY = "kDeniedPermissionsArray";
-    public static final String PERMISSION_ARRAY_INTENT_KEY = "kPermissionArray";
-    public static final String RATIONALE_ARRAY_INTENT_KEY = "kRationaleArray";
+
 
     private String[] permissions;
     private String[] rationales;

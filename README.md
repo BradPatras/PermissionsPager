@@ -15,8 +15,8 @@ Don't forget, to receive the results of the permission requests, you must implem
  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
-            String[] denied = data.getStringArrayExtra(PagerActivity.DENIED_ARRAY_INTENT_KEY);
-            String[] granted = data.getStringArrayExtra(PagerActivity.GRANTED_ARRAY_INTENT_KEY);
+            String[] denied = data.getStringArrayExtra(PermissionsPager.DENIED_ARRAY_INTENT_KEY);
+            String[] granted = data.getStringArrayExtra(PermissionsPager.GRANTED_ARRAY_INTENT_KEY);
         }
     }
 ```

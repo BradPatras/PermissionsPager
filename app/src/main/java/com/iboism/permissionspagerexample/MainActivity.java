@@ -8,13 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.iboism.permissionspager.PagerActivity;
 import com.iboism.permissionspager.PermissionsPager;
-
 import java.util.Arrays;
-
-import static android.R.attr.button;
 import static com.iboism.permissionspager.PermissionsPager.DENIED_ARRAY_INTENT_KEY;
 import static com.iboism.permissionspager.PermissionsPager.GRANTED_ARRAY_INTENT_KEY;
 

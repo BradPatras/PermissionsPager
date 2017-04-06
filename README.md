@@ -1,7 +1,7 @@
 # PermissionsPager
 A simple solution for requesting multiple permissions at once, namely during onboarding. 
 
-###Usage
+### Usage
 To launch the PermissionPager:
 ```java 
 PermissionsPager.buildPermissionsPager(this)
@@ -20,7 +20,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     }
 }
 ```
-###Current Issues/TODO
+### Current Issues/TODO
 - Support for custom pager layout
 - Handling permission groups
 - Backwards compatibility with pre-marshmallow
